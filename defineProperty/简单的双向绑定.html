@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>defineProperty</title>
+    <style>
+        div {
+            width: 100px;
+            height: 30px;
+            border: 1px solid;
+        }
+    </style>
+</head>
+
+<body>
+    <input type="text" id="inp">
+    <div id="div"></div>
+</body>
+<script>
+    var obj = {};
+    Object.defineProperty(obj, 'hello', {
+        "set": function (newVal) {
+            document.getElementById('inp').value = newVal;
+            document.getElementById('div').innerHTML = newVal;
+        }
+    });
+
+    document.addEventListener('keyup', function (e) {
+        obj.hello = e.target.value;
+    });
+</script>
+</html>

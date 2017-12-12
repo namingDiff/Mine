@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>defineProperty</title>
+    <style>
+        #div {
+            width: 100px;
+            height: 30px;
+            border: 1px solid;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+            <input type="text" id="inp">
+            <div id="div"></div>
+    </div>
+</body>
+<script>
+
+    var dom = nodeToFragment(document.getElementById('app'));
+    console.log(dom);
+    
+    function nodeToFragment(node) {
+        var flag = document.createDocumentFragment();
+        var child;
+        while(child == node.firstChild) {
+            flag.appendChild(child);
+        }
+        return flag;
+    }
+
+    document.getElementById('app').appendChild(dom);
+</script>
+</html>

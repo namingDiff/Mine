@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>defineProperty</title>
+    <style>
+        #div {
+            width: 100px;
+            height: 30px;
+            border: 1px solid;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+            <input type="text" id="inp" v-model="text">
+            {{text}}
+    </div>
+</body>
+<script>
+
+    var vm = new Vue({
+        "el": 'app',
+        "data": {
+            "text": 'hello world'
+        }
+    });
+
+    function Compile(node, vm) {
+        var reg = /\{\{(.*)\}\}/;
+        if(node.nodeType === 1) {
+            var attr = node.attributes;
+            for(var i = 0,length = attr.length; i < length; i++) {
+                if(attr[i].nodeName == 'v-model') {
+                    node.value = vm.data.text;
+                    node.removeAttribute('v-model');
+                }
+            }
+        }
+
+        if(node.nodeType === 3) {
+            if(reg.test(node.nodeValue)) {
+                var name = RegExp.$1;
+                name = name.trim();
+                node.nodeValue = vm.data.text;
+            }
+        }
+    }
+
+    function nodeToFragment(node, vm) {
+        var flag = document.createDocumentFragment();
+        var child;
+        while(child = node.firstChild) {
+            Compile(child, vm);
+            flag.appendChild(child);
+        }
+        return flag;
+    }
+
+    function Vue(options) {
+        this.data = options.data;
+        var id = options.el;
+        var dom = nodeToFragment(document.getElementById(id), this);
+        document.getElementById(id).appendChild(dom);
+    }
+</script>
+</html>
