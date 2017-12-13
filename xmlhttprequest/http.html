@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>XMLHttpRequest</title>
+</head>
+<body>
+<button onclick="LoadXMLDoc('note.xml')">click</button>
+<div class="box"></div>
+</body>
+<script>
+    function LoadXMLDoc(url) {
+        var http = new XMLHttpRequest();
+
+        http.onreadystatechange = StateChange;
+
+        http.open('GET', url, true);
+
+        http.send(null);
+
+        function StateChange() {
+            if(http.readyState === 4) {
+                if(http.status === 200) {
+                    console.log('success');
+                    document.getElementsByClassName('box')[0].innerText = http.responseText;
+                } else {
+                    console.log('fail');
+                }
+            }
+        }
+    }
+</script>
+</html>
