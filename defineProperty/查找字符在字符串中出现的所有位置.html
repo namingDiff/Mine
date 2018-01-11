@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>find</title>
+    <style>
+        
+    </style>
+</head>
+
+<body>
+    
+</body>
+<script>
+    
+    var str = "sfasdadf asdfasf a asdfad wef a";
+    var arr = [];
+    var res = str.indexOf('a');
+    while(res > -1) {
+        arr.push(res);
+        res = str.indexOf('a', res + 1);
+    }
+    console.log(arr);
+    // ps:  获取数组长度就是字符出现的次数
+</script>
+
+</html>
