@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="box">
+        <input type="text" v-model="dynamicMsg">
+        <br>
+        <child-template :data="dynamicMsg"></child-template>
+    </div>
+</body>
+<script src="../vue-2.js"></script>
+<script>
+    Vue.component('child-template', {
+        "template": '<div>{{data}}</div>',
+        "props": ['data']
+    });
+    new Vue({
+        "el": '#box',
+        "data": {
+            "dynamicMsg": 'Hello World'
+        }
+    });
+</script>
+</html>

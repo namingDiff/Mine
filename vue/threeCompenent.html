@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="box">
+        <counter></counter>
+        <counter></counter>
+        <counter></counter>
+        <br>
+        <sec></sec>
+        <sec></sec>
+        <sec></sec>
+    </div>
+</body>
+<script src="../vue-2.js"></script>
+<script>
+    var data = {
+        "count": 0
+    };
+
+    Vue.component('counter', {
+        "template": '<button @click="count += 1">{{count}}</button>',
+        "data": function () {
+            return data;
+        }
+    });
+
+    Vue.component('sec', {
+        "template": '<button @click="num += 1">{{num}}</button>',
+        "data": function () {
+            return {
+                "num": 0
+            }
+        }
+    });
+
+    new Vue({
+        "el": '#box'
+    });
+</script>
+</html>
