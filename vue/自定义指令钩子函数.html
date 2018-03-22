@@ -34,6 +34,7 @@
                 "inserted": function (el, binding, nodeDom) {
                     el.focus();
                     // 被指令绑定指令的元素插入父节点的时候调用
+					// 父节点存在即可调用，不必存在于 document 中
                 },
                 "bind": function (el, binding, nodeDom) {
                     console.log(1);
