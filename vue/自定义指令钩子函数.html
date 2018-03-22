@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>自定义指令钩子函数</title>
+</head>
+<body>
+    
+<div id="app">
+
+    <input type="text" v-lang>
+    <button v-lang>focus</button>
+</div>
+
+</body>
+<script type="text/javascript" src="vue.min.js"></script>
+<script>
+    var vm = new Vue({
+        "el": "#app",
+        "data": {
+            
+        },
+        "directives": {
+            "lang": {
+                /**
+                    回调函数参数的意义
+                    el: 绑定指令的元素html
+                    binding：对象的形式输出，自定义指令的信息（指令名字，使用的名字，包括我们传入的值，
+                            我们可以利用这个参数，在钩子函数中进行相关操作）
+                    nodeDom: 输出绑定指令的元素的虚拟dom节点信息        
+                */
+                "inserted": function (el, binding, nodeDom) {
+                    el.focus();
+                    // 被指令绑定指令的元素插入父节点的时候调用
+                },
+                "bind": function (el, binding, nodeDom) {
+                    console.log(1);
+                    // 只调用一次，指令第一次绑定到元素师调用
+                },
+                "unbind": function (el, binding, nodeDom) {
+                    console.log(1);
+                    // 指令被解除绑定的时候
+                },
+                "update": function (el, binding, nodeDom) {
+                    console.log(1);
+                    // 每次模型变化，都会触发该函数
+                },
+                "componentUpdated": function (el, binding, nodeDom) {
+                    console.log(1);
+                    // 被绑定元素所在模板完成一次更新周期时候触发
+                }
+            }
+        }
+    })
+</script>
+</html>
