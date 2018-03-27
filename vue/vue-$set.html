@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script src="../vue.min.js"></script>
+<script>
+    var vm = new Vue({
+        "data": {
+            "arr": [{
+                "name": "q"
+            }, {
+                "name": "a"
+            }],
+            "test": [1, 2, 3],
+            "obj": {
+                "a": 123
+            }
+        }
+    });
+
+    vm.arr.forEach(function (element, index, inp) {
+        vm.$set(inp[index], "name", "yy");
+    });
+
+    vm.test.forEach(function (element, index, inp) {
+        vm.$set(inp, index, 3)
+    })
+
+    vm.$set(vm.obj, "a", 333)
+    vm.$set(vm.obj, "b", 111)
+</script>
+</html>
