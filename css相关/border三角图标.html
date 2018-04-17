@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<style>
+  .test {
+    width: 100px;
+    height: 35px;
+    background: red;
+    margin: 40px auto;
+    line-height: 35px;
+  }
+
+  .test::before{
+    content: "";
+    border: 5px solid transparent;
+    border-right-color: red;
+    display: inline-block;
+    position: relative;
+    left: -10px;
+  }
+</style>
+<body>
+  <div class="test">
+    xxxx
+  </div>
+</body>
+</html>
