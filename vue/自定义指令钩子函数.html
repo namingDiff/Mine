@@ -10,17 +10,26 @@
     
 <div id="app">
 
-    <input type="text" v-lang>
-    <button v-lang>focus</button>
+    <input type="search" v-model="val" v-lang>
+    <button v-lang v-if="is_show">focus</button>
+    <xl-direc v-block v-text="block_text"></xl-direc>
 </div>
 
 </body>
-<script type="text/javascript" src="vue.min.js"></script>
+<script type="text/javascript" src="../vue.min.js"></script>
 <script>
+
     var vm = new Vue({
         "el": "#app",
         "data": {
-            
+            val: '123ABc',
+            block_text: 'this is test',
+			is_show: true
+        },
+        components: {
+            "xl-direc": {
+                "template": `<h5>自定义组件</h5>`
+            }
         },
         "directives": {
             "lang": {
@@ -37,20 +46,28 @@
 					// 父节点存在即可调用，不必存在于 document 中
                 },
                 "bind": function (el, binding, nodeDom) {
+					el.value = el.value.toLowerCase();
                     console.log(1);
-                    // 只调用一次，指令第一次绑定到元素师调用
+                    // 只调用一次，指令第一次绑定到元素时调用
                 },
                 "unbind": function (el, binding, nodeDom) {
-                    console.log(1);
+                    console.log('unbind component');
                     // 指令被解除绑定的时候
                 },
                 "update": function (el, binding, nodeDom) {
+                    
                     console.log(1);
                     // 每次模型变化，都会触发该函数
                 },
                 "componentUpdated": function (el, binding, nodeDom) {
                     console.log(1);
                     // 被绑定元素所在模板完成一次更新周期时候触发
+                }
+            },
+            "block": {
+                bind (ele, obj, dom) {
+                    var a;
+                    a = a +1;
                 }
             }
         }
