@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+  #box {
+    width: 120px;
+    height: 30px;
+    line-height: 30px;
+    border: 1px solid;
+  }
+
+  #box::after {
+    content: "☌";
+    transform: rotate(180deg);
+    float: left;
+    font-size: 25px;
+    position: absolute;
+    line-height: 30px;
+    left: 5px;
+  }
+
+  #inp {
+    border: none;
+    width: 100px;
+    margin-left: 10px;
+    height: 25px;
+    outline: none;
+  }
+  </style>
+</head>
+<body>
+  <div type="text" id="box">
+    <input type="text" name="" id="inp">
+  </div>
+</body>
+</html>
