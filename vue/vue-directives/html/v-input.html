@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>v-input</title>
+</head>
+
+<body>
+  <div id="app">
+    <input type="search" v-model="val" v-inp.custom-param="val">
+  </div>
+</body>
+<script src="../js/vue.min.js"></script>
+<script>
+  /**
+   * v-inp.modifi="params"  "."后面参数在modifiers对象中可以获取到
+   *                        params需要在date中定义
+   * binding中要获取value和oldvalue，需要在data中定义val
+   */
+
+  Vue.directive('inp', {
+    "inserted": function (el, binding, vnode) {
+      var a;
+      a += 1;
+    },
+    "update": function (el, binding, vnode) {
+      var a;
+      a += 1;
+    }
+  });
+
+  var vm = new Vue({
+    "el": '#app',
+    "data": {
+      "val": 'vvvvvvvvvv',
+      "params": 123
+    }
+  });
+</script>
+
+</html>

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>v-tooltip</title>
+  <style>
+    li {
+      list-style: none;
+      width: 100px;
+      height: 100px;
+      border: 1px solid #eee;
+      position: relative;
+      left: 100px;
+      top: 100px;
+    }
+
+    li:hover {
+      background: red;
+    }
+
+    .tips {
+      position: absolute;
+      width: 100px;
+      height: 50px;
+      background: #000;
+      color: #fff;
+      text-align: center;
+    }
+
+    .tips.left {
+      left: 130px;
+      top: 25px;
+    }
+
+    .tips.right {
+      right: 130px;
+      top: 25px;
+    }
+
+    .tips.top {
+      left: 50%;
+      margin-left: -50px;
+      top: -75px;
+    }
+
+    .tips.bottom {
+      left: 50%;
+      margin-left: -50px;
+      bottom: -75px;
+    }
+
+    .tips:after {
+      position: absolute;
+      border: 10px solid transparent;
+      content: "";
+    }
+
+    .left:after {
+      border-right-color: #000;
+      left: -20px;
+      top: 50%;
+      margin-top: -10px;
+    }
+
+    .right:after {
+      border-left-color: #000;
+      right: -20px;
+      top: 50%;
+      margin-top: -10px;
+    }
+
+    .bottom:after {
+      border-bottom-color: #000;
+      top: -20px;
+      left: 50%;
+      margin-left: -10px;
+    }
+
+    .top:after {
+      border-top-color: #000;
+      bottom: -20px;
+      left: 50%;
+      margin-left: -10px;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <ul>
+      <!-- 可支持设置top,bottom,left,right四个方向 -->
+      <li v-mytip.top="mes">sss</li>
+    </ul>
+  </div>
+
+</body>
+<script src="../js/vue.min.js"></script>
+<script>
+  Vue.directive('mytip', {
+    bind: function (el, binding, vnode) {
+      var flag = false;
+      el.onmouseover = function () {
+        if (!flag) {
+          var newEle = document.createElement("div");
+          newEle.id = "tip";
+          newEle.className = 'tips ' + Object.keys(binding.modifiers);
+          newEle.innerHTML = binding.expression;
+          el.append(newEle);
+          flag = true;
+        }
+      }
+      el.onmouseout = function () {
+        document.getElementById('tip').remove();
+        flag = false;
+      }
+    }
+  })
+
+  new Vue({
+    el: '#app',
+    data: {
+      mes: 'hahahahah'
+    }
+  })
+</script>
+
+</html>

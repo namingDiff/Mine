@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div id="box_img">
+    <div style="width: 297px; height: 297px;float: left;margin-left: 20px;" v-img="val.url" v-for="val in list"></div>
+  </div>
+</body>
+<script src="../js/vue.min.js"></script>
+<script>
+
+  Vue.directive('img', {
+    "inserted": function (ele, binding) {
+      var color = Math.floor(Math.random() * 1000000);
+      ele.style.backgroundColor = '#' + color;
+
+      var img = new Image();
+      img.src = binding.value;
+      img.onload = function () {
+        setTimeout(function () {
+          ele.style.backgroundImage = 'url(' + binding.value + ')';
+        },1500);
+        
+      }
+    }
+  });
+  var vm = new Vue({
+    "el": '#box_img',
+    "data": {
+      "list": [{
+        "url": '../img/test.png'
+      }, {
+        "url": '../img/test-2.png'
+      }, {
+        "url": '../img/test-3.png'
+      }]
+    }
+  });
+</script>
+</html>
