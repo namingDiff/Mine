@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>H5-drag-test</title>
+  <style>
+    .drag-test {
+      width: 200px;
+      height: 200px;
+      border: 1px solid red;
+    }
+  </style>
+</head>
+<body>
+  <div class="drag-test" draggable="true" ondrop="drop(event)" ondragover="over(event)">
+
+  </div>
+  <img id="pic" src="./img/eg_dragdrop_w3school.gif" alt="loading..." draggable="true" ondragstart="drag_start(event)">
+</body>
+<script>
+  function drop(event) {
+    event.preventDefault();
+    var data = event.dataTransfer.getData('text');
+    event.target.appendChild(document.getElementById(data));
+  }
+
+  function over(event) {
+    event.preventDefault();
+  }
+
+  function drag_start(event) {
+    event.dataTransfer.setData('text', event.target.id);
+  }
+</script>
+</html>
