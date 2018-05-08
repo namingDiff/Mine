@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>数组去重</title>
+</head>
+<body>
+    
+</body>
+<script>
+    var arr = [1,1,2,2,3,3];
+
+    // es6  Array.from与set去重
+    // console.log(Array.from(new Set(arr)));
+
+    // es6  set与解构赋值去重
+    // console.log([...new Set(arr)]);
+
+    // 利用对象属性去重
+    // var empty_obj = {}, empty_arr = [];
+    // for (let index = 0; index < arr.length; index++) {
+    //     const element = arr[index];
+    //     if (!empty_obj[element]) {
+    //         empty_arr.push(element);
+    //         empty_obj[element] = 1;
+    //     }
+    // }
+    // console.log(empty_arr, 'obj');
+
+    // indexOf方法去重
+    // var empty_arr = [];
+    // for (let index = 0; index < arr.length; index++) {
+    //     const element = arr[index];
+    //     if (empty_arr.indexOf(element) === -1) {
+    //         empty_arr.push(element);
+    //     }
+    // }
+    // console.log(empty_arr);
+</script>
+</html>
