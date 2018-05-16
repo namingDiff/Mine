@@ -1,0 +1,25 @@
+$fontSize: 20px;
+$color: #ccc;
+
+.test {
+  font-size: $fontSize;
+  color: $color;
+}
+
+.img-1 {
+  width: 96px;
+  height: 95px;
+  background: url('./../images/list/flash.png');
+}
+
+.img-2 {
+  width: 86px;
+  height: 95px;
+  background: url('./../images/list/star_ball.png');
+}
+
+.img-3 {
+  width: 82px;
+  height: 95px;
+  background: url('./../images/list/star.png');
+}

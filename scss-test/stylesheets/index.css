@@ -1,0 +1,31 @@
+.list-sprite, .list-flash, .list-star, .list-star_ball {
+  background-image: url('/images/list-s0cd4dd6c4f.png');
+  background-repeat: no-repeat; }
+
+.list-flash {
+  background-position: 0 0; }
+
+.list-star {
+  background-position: 0 -95px; }
+
+.list-star_ball {
+  background-position: 0 -190px; }
+
+.test {
+  font-size: 20px;
+  color: #ccc; }
+
+.img-1 {
+  width: 96px;
+  height: 95px;
+  background: url("./../images/list/flash.png"); }
+
+.img-2 {
+  width: 86px;
+  height: 95px;
+  background: url("./../images/list/star_ball.png"); }
+
+.img-3 {
+  width: 82px;
+  height: 95px;
+  background: url("./../images/list/star.png"); }
