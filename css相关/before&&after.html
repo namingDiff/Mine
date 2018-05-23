@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+
+      .test {
+        font-family: MicroSoft YaHei;
+        font-size: 20px;
+      }
+
+      .test:first-letter {
+        color: red;
+      }
+
+      /* .test:first-line {
+        background: #ccc;
+      } */
+
+      .test:before {
+        content: "这是\Atest"
+      }
+
+      /*attr 会覆盖上面的before*/
+      .test::before {
+        content: attr(data-before)
+      }
+
+      .test:after {
+        content: "▏"
+      }
+
+      .test::selection {
+        color: red;
+        background: #ccc;
+      }
+
+      .way {
+        width: 300px;
+        height: 50px;
+        line-height: 50px;
+        background: aliceblue;
+        text-align: center;
+        position: absolute;
+        left: 500px;
+      }
+
+      .way::before, .way::after {
+        content: '';
+        width: 135px;
+        height: 1px;
+        background: #ccc;
+        position: absolute;
+        top: 25px;
+      }
+
+      .way::before {
+        left: 0;
+      }
+
+      .way::after {
+        right: 0;
+      }
+
+      .down {
+        width: 200px;
+        height: 200px;
+        border: 1px solid #ccc;
+        text-indent: 0.5em;
+      }
+
+      .down::first-letter {
+        font-size: 30px;
+        float: left;
+      }
+
+      .nail::before {
+        display: block;
+        content: "钉子";
+        width: 50px;
+        height: 50px;
+        background-color: black;
+        border-radius: 50%;
+        color: #fff;
+        line-height: 50px;
+        text-align: center;
+      }
+
+      .nail::after {
+        display: block;
+        content: "";
+        width: 0;
+        height: 0;
+        border: 25px solid transparent;
+        border-top: 50px solid black;
+        margin-top: -20px;
+      }
+    </style>
+  </head>
+  <body>
+    <button class="btn">click</button>
+    <div class="test" data-before="test data before">
+      这是一段非常长的测试文字
+    </div>
+    <div class="way">
+      or
+    </div>
+    <div class="down">
+      亚冠联赛是亚洲最高等级的俱乐部赛事，相当于欧洲的欧洲冠军联赛及南美洲的南美解放者杯。
+    </div>
+    <div class="nail">
+
+    </div>
+  </body>
+  <script>
+    
+    var arr = [1,2,3], test = [4,5]
+    
+   arr = [...arr, ...test]
+
+    for(var i of arr) {
+      console.log(i);
+    }
+
+
+  </script>
+</html>
