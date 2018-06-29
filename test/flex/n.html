@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        
+    </style>
+</head>
+<body>
+<div id="box">
+    <div v-for="item in arr">
+            <h5>{{item | test}}</h5>
+    </div>
+    
+</div>
+
+</body>
+<script src="./../vue.min.js"></script>
+<script>
+    var arr=[1,2,3,4,5,6];
+    var obj = {};
+    Object.defineProperty(obj, 'name', {
+        set: function (val) {
+            console.log(val);
+        },
+        get: function (value) {
+            console.log(value);
+        }
+    });
+
+    obj.name = 'JavaScript';
+
+    console.log(obj.name);
+
+    
+
+    var pro = new Promise(function (success, fail) {
+        var isTrue = true;
+        if (isTrue) {
+            success();
+        } else {
+            fail();
+        }
+    });
+
+    pro.then(function () {
+        console.log('success');
+    }, function (){
+        console.log('error');
+    });
+    
+</script>
+</html>

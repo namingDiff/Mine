@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./css/common.css">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <router-link class="dashboard" to="/part1">dashboard</router-link>
+        <router-link to="/part2">services</router-link>
+        <topbar></topbar>
+        <router-view></router-view>
+    </div>
+</body>
+<script src="../vue.min.js"></script>
+<script src="../vue-router.min.js"></script>
+<script src="../vuex.js"></script>
+<script src="js/sea.js"></script>
+<script>
+
+    seajs.config({
+        "base": './views/',
+        "alias": {
+
+        }
+    });
+
+    seajs.use('./main', function (main) {
+        main.init();
+    });
+</script>
+</html>

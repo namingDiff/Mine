@@ -1,0 +1,66 @@
+@charset 'utf-8';
+$bg: #ccc;
+$fontSize: 12px;
+$width: 200px;
+$height: 100px;
+$border: 1px solid #fdd;
+$setting-sprite-dimensions: true;
+.test_1 {
+    background: url('../images/list/author-icon.png');
+}
+
+.test_2 {
+    background: url('../images/list/author-over.png');
+}
+
+.test_3 {
+    width: 200px;
+    height: 200px;
+    border: $border;
+    font: {
+        family: 'MicroSoft YaHei';
+        size: $fontSize;
+        weight: bold;
+    }
+    .h {
+        font: {
+            size: 30px;
+        }
+        color: $bg;
+    }
+}
+/*test*/
+// test
+.magic {
+    width: 29px;
+    height: 29px;
+    background: url('./../images/magic/close.png');
+    &:hover {
+        width: 29px;
+        height: 29px;
+        background: url('./../images/magic/close_hover.png');
+    }
+    &:active {
+        width: 29px;
+        height: 29px;
+        background: url('./../images/magic/close_active.png');
+    }
+
+    &-test {
+      color: red;
+    }
+}
+
+@mixin test($selector) {
+  #{$selector}::before {
+    content: "hello";
+  }
+}
+
+@include test(".magic");
+
+.xx {
+  width: #{$width}/#{$height};
+  color: #010101 + #999;
+}
+

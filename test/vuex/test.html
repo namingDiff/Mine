@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>vuex test</title>
+</head>
+
+<body>
+  <div id="app">
+    <input type="text" v-model="dd">
+    <button class="test" @click="add">add</button>
+  </div>
+</body>
+<script src="../vue.min.js"></script>
+<script src="../vuex.js"></script>
+<script>
+
+  var store = new Vuex.Store({
+    "state": {
+      "new_num": 123
+    },
+    "mutations": {
+      add (state, val) {
+        state.new_num = val;
+      }
+    }
+  });
+
+
+
+  var nm = new Vue({
+    "el": '#app',
+    "data": {
+      "n": 1
+    },
+    "computed": {
+      "dd": function () {
+        return store.state.new_num;
+      }
+    },
+    "methods": {
+      add () {
+        console.log(this.dd)
+        store.commit('add', 111);
+      }
+    }
+  });
+</script>
+
+</html>

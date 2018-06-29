@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>props</title>
+</head>
+<body>
+<div id="app">
+    <com-a :content-data="text" @ctrl="change"></com-a>
+
+</div>
+</body>
+<script src="../vue.min.js"></script>
+<script>
+
+    var comA = Vue.component('com-a', {
+        "template": `<div>
+                        <h5>{{contentData}}</h5>
+                        <button v-on="input_listener">click</button>
+                    </div>`,
+        "props": ['contentData'],
+        data() {
+            return {};
+        },
+        "methods": {
+        },
+        "computed": {
+            input_listener() {
+
+                var self = this;
+
+                return {
+                    click() {
+                        self.$emit('ctrl');
+                    }
+                };
+            }
+        }
+    });
+
+    var vm = new Vue({
+        "el": '#app',
+        "data": {
+            "text": 'xxx'
+        },
+        "methods": {
+            change() {
+                this.text = 'change';
+            }
+        }
+    });
+</script>
+</html>

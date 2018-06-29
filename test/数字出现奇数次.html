@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  
+</body>
+<script>
+
+  var arr = [1,1,-2,2,5,2,4,-4,-1,-2,5];
+
+  console.log(arr.reduce((a,b) => a ^ b))
+
+  var str = 'abcd';
+  str = str.replace('ab', function (v) {
+    if (v.indexOf('a') > -1) {
+      return 'a';
+    }
+    return v;
+  });
+  console.log(str);
+
+  function eff(ary) {
+    ary[0] = ary[2];
+  }
+
+  function run(a,b,c) {
+    c = 10;
+    eff(arguments);
+    return a + b+ c;
+  }
+
+  run(1,1,1)
+
+  function likes(names) {
+    var template = [
+      'no one like this',
+      '{name} likes this',
+      '{name} and {name} like this',
+      '{name}, {name} and {name} like this',
+      '{name}, {name} and {n} others like this'
+    ];
+
+    var idx = Math.min(names.length, 4);
+
+    return template[idx].replace(/{name}|{n}/g, function(v) {
+      return v === '{name}' ? names.shift() : names.length;
+    });
+  }
+
+  console.log(likes(['yang','gang']));
+
+</script>
+</html>

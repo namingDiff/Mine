@@ -1,0 +1,47 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>发布订阅模式</title>
+</head>
+<body>
+    
+</body>
+<script>
+
+    // 发布方法
+    var pub = {
+        "actions": function () {
+            dep.update();
+        }
+    };
+
+    // 订阅
+    var sub_1 = {
+        "update": function () {
+            console.log(1);
+        }
+    };
+
+    var sub_2 = {
+        "update": function () {
+            console.log(2);
+        }
+    };
+
+    function Dep (arr) {
+        this.update = function () {
+            for (var i = 0, iLen = arr.length; i < iLen; i++) {
+                arr[i].update();
+            }
+        }
+    }
+
+    // 发布消息
+    var dep = new Dep([sub_1, sub_2]);
+    // 执行
+    pub.actions();
+</script>
+</html>

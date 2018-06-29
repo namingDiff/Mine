@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Dialog</title>
+    <style>
+        .main {
+            width: 400px;
+            height: 230px;
+            border: 1px solid #aaa;
+            border-radius: 4px;
+        }
+
+        .header {
+            width: 100%;
+            height: 35px;
+            line-height: 35px;
+            font-size: 14px;
+            text-align: left;
+            padding-left: 10px;
+        }
+
+        .cut-line {
+            background: #aaa;
+            height: 1px;
+        }
+
+        .content {
+            width: 100%;
+            height: 144px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .footer {
+            height: 50px;
+            border-top: 1px solid #aaa;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+        }
+
+        .footer > button {
+            width: 80px;
+            height: 25px;
+            border: 1px solid #aaa;
+            background: #fff;
+            border-radius: 2px;
+            margin-right: 20px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="dialog"></div>
+</body>
+<script>
+    var Dialog = function () {
+        this.header = "example";
+        this.init();
+    };
+
+    Dialog.prototype = {
+        "init": function () {
+            
+            var template = `<div class="main"><div class="header">`+this.header+
+                                `</div>
+                                <div class="cut-line"></div>
+                                <div class="content">
+                                    content
+                                </div>
+                                <div class="footer">
+                                    <button class="confirm">确定</button><button class="cancel">取消</button>
+                                </div>
+                            </div>`;
+            
+            document.getElementsByClassName("dialog")[0].innerHTML = template;
+        },
+        "show": function () {
+
+        },
+        "remove": function () {
+            this.template = "";
+        }
+    };
+
+    var dialog = new Dialog();
+</script>
+</html>

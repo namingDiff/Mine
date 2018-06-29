@@ -1,0 +1,9 @@
+
+$list-sprite-dimensions: true;
+
+@import 'compass/utilities/sprites';
+@import 'list/*.png';
+@include all-list-sprites;
+
+
+@include test(".fff");

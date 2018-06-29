@@ -1,0 +1,57 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    </style>
+</head>
+
+<body>
+    <div id="box">
+        <img :src="imgUrl" alt="loading...">
+        <button @click="click">click me</button>
+        <button @click="imgStop">stop</button>
+    </div>
+
+</body>
+<script type="text/javascript" src="../vue.min.js"></script>
+<script>
+    new Vue({
+        "el": '#box',
+        "data": {
+            "imgUrl": null,
+            "intervalRes": null
+        },
+        "methods": {
+            "click": function () {
+
+                var self = this;
+
+                var num = 1;
+
+                var imgInterval = setInterval(function () {
+                
+                    self.imgUrl = 'transfer' + (num++) + '.png';
+                    
+                    if(num == 24) {
+                        num = 1;
+                    }
+                }, 80);
+
+                self.intervalRes = imgInterval;
+
+            },
+            "imgStop": function () {
+                var self = this;
+                clearInterval(self.intervalRes);
+            }
+        }
+    });
+
+</script>
+
+</html>

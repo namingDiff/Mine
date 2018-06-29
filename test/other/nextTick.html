@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>next-tick</title>
+    <style>
+        .fade-enter-active, .fade-leave-active{
+            transition: all 0.5s ease;
+        }
+        .fade-enter, .fade-leave-active {
+            opacity: 0;
+        }
+    </style>
+</head>
+
+<body>
+<div class="app">
+    {{content}}
+
+    <transition name="fade">
+        <h5 v-if="">xxx</h5>
+    </transition>
+    <button @click="show=!show">click{{show}}</button>
+</div>
+</body>
+<script src="../vue.min.js"></script>
+<script>
+
+    var vm = new Vue({
+        "el": '.app',
+        "data": {
+            "content": 'xxx',
+            "show": true
+        }
+    });
+
+    vm.content = 'change';
+
+    vm.$nextTick(function () {
+        console.log(11);
+    });
+</script>
+</html>

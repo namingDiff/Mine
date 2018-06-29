@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<link rel="Shortcut Icon" href="../pause.png">
+    <style>
+		#custom_toast {
+			width: 100px;
+			height: 30px;
+			background: #00d779;
+			position: absolute;
+			bottom: 130px;
+			left: 50%;
+			text-align: center;
+			line-height: 30px;
+			display: none;
+			border-radius: 4px;
+			padding: 0 26px;
+			color: #fff;
+		}
+    </style>
+</head>
+<body>
+
+	<div id="custom_toast"></div>
+
+	<button class="btn">click</button>
+</body>
+<script src="../jquery-1.9.1.js"></script>
+<script>
+
+var type = "open";
+var num = 3;
+	switch (type) {
+		case "open":
+			if (num > 2) {
+				console.log("gt 2");
+				break;
+			}
+
+			console.log("work");
+	};
+    
+</script>
+</html>

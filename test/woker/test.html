@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>HTML5 woker test</title>
+</head>
+<body>
+  <input type="text">
+  <button>increase</button><button>decrease</button>
+</body>
+<script>
+  var inp = document.querySelector('input');
+
+  var w = new Worker('./woker.js');
+
+  w.onmessage = function (event) {
+    console.log(event);
+  };
+
+  inp.value = 123;
+</script>
+</html>

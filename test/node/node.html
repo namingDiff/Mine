@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>node value</title>
+</head>
+<body>
+<p id="nodeofp">abcd</p>
+</body>
+<script>
+    var nodeEle = document.getElementById('nodeofp');
+    console.log(nodeEle.childNodes[0].nodeValue);
+
+    var obj = {};
+    Object.defineProperty(obj, 'hello', {
+        "value": 'world'
+    });
+</script>
+</html>

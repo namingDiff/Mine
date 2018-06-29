@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<style>
+    .box {
+        width: 50px;
+        height: 30px;
+        border-top: 1px solid;
+        border-left: 4px solid green;
+    }
+</style>
+<body>
+    <div class="box"></div>
+</body>
+<script>
+
+    function test(cb) {
+        var total = {
+            "num": 123
+        }
+        setTimeout(function(){
+            cb(total);
+        },2000);
+        
+    }
+
+    test(function(res){
+        console.log(res);
+    });
+
+    console.log(123)
+
+</script>
+</html>

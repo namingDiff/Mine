@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+      /* #inp {
+        position: absolute;
+      }
+
+      #inp input {
+        height: 28px;
+      }
+
+      #inp::before {
+        width: 27px;
+        height: 28px;
+        content: url("./search.png");
+        position: absolute;
+      } */
+
+      .test {
+        width: 200px;
+        height: 28px;
+        background: #fff url("./search.png") left no-repeat;
+        border: #ccc 1px solid;
+        line-height: 28px;
+        padding-left: 25px;
+        border-right: 0;
+        border-radius: 3px 0 0 3px;
+        outline: none;
+      }
+
+      .commit {
+        height: 32px;
+        border: none;
+        background: #1dbd9d;
+        color: #fff;
+        outline: none;
+        cursor: pointer;
+      }
+    </style>
+</head>
+<body>
+    <input type="text" class="inp" value="123456">
+    <div id="app">
+        <test :msg="msg"></test>
+        <button @click="btn_click">click</button>
+    </div>
+    <div id="inp">
+        <input type="text" name="" class="test" placeholder="请输入您感兴趣的关键词"><button class="commit">commit</button>
+    </div>
+    
+</body>
+<script src="./vue.min.js"></script>
+<script>
+
+    Vue.component("test", {
+        "template": "<h5>{{msg}}</h5>",
+        "props": {
+            "msg": {
+                type: Array,
+                required: true,
+                default: 0
+            }
+        }
+    });
+
+    var vm = new Vue({
+        "el": "#app",
+        "data": {
+            "msg": '123'
+        },
+        "methods": {
+            btn_click() {
+                console.log('111');
+            }
+        }
+    })
+
+    var inputElement = document.getElementsByClassName("inp")[0];
+    inputElement.focus();
+    inputElement.setSelectionRange(2,6,"backword")
+
+</script>
+</html>

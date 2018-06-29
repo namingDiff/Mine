@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>keep alive</title>
+    <style>
+
+        ul, li {
+            list-style: none;
+        }
+
+        li {
+            border-bottom: 1px solid red;
+            cursor: pointer;
+        }
+
+        .left, .right {
+            display: inline-block;
+            background: #0e6570;
+            width: 100px;
+            height: 55px;
+            text-align: center;
+            line-height: 55px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .right {
+            margin-left: 20px;
+        }
+
+        .content {
+            width: 500px;
+            height: 500px;
+            border: 1px solid skyblue;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+    <div class="left" @click="show_left">
+        left
+    </div>
+    <div class="right" @click="show_right">
+        right
+    </div>
+    <br>
+    <com-left class="content" v-if="is_show_left"></com-left>
+    <keep-alive>
+        <com-right class="content" v-if="is_show_right"></com-right>
+    </keep-alive>
+
+</div>
+</body>
+<script src="../vue.min.js"></script>
+<script>
+
+    Vue.component('com-left', {
+        "template": `<div>
+<h1>this is H1</h1>
+<h2>this is h2</h2>
+<h3>this is h3</h3>
+</div>`
+    });
+
+    Vue.component('com-right', {
+        "template": `<div>
+<ul>
+<li v-for="item in items" v-text="item" @click="show_content(item)"></li>
+</ul>
+<h5>{{content}}</h5>
+</div>`,
+        data() {
+            return {
+                "items": ['javascript', 'html', 'css', 'es6'],
+                "content": ''
+            };
+        },
+        "methods": {
+            show_content(item) {
+                this.content = item;
+            }
+        }
+    });
+
+    var vm = new Vue({
+        "el": '#app',
+        "data": {
+            "is_show_left": true,
+            "is_show_right": false
+        },
+        "methods": {
+            show_left() {
+                this.is_show_left = true;
+                this.is_show_right = false;
+            },
+            show_right() {
+                this.is_show_left = false;
+                this.is_show_right = true;
+            }
+        }
+    });
+</script>
+</html>

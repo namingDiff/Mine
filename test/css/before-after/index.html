@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>before && after</title>
+  <style>
+    .or {
+      width: 300px;
+      height: 50px;
+      border: 1px solid red;
+      margin: 120px auto;
+      text-align: center;
+      line-height: 50px;
+    }
+
+    .or::before, .or::after {
+      content: '';
+      width: 100px;
+      height: 1px;
+      background: #ccc;
+      position: absolute;
+    }
+  </style>
+</head>
+<body>
+  <div class="or">
+      <p>Or</p>
+  </div>
+  
+</body>
+<script>
+  var foo = {
+    bar: function () {
+      return this.baz
+    },
+    baz: 1
+  };
+
+  ;(function () {
+    return typeof arguments[0]();
+  })(foo.bar)
+</script>
+</html>

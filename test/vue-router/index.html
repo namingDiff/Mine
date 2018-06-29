@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>vue router</title>
+    <link rel="stylesheet" href="./css/index.css">
+</head>
+
+<body>
+    <div id="app">
+        <p>
+            <router-link to="/home">home</router-link>
+            <router-link to="/news">news</router-link>
+            <router-link :to="{name: 'user', params: {userId: 123}}">user123</router-link>
+            <router-link :to="{name: 'user', params: {userId: 456}}">user456</router-link>
+        </p>
+        <router-view></router-view>
+    </div>
+</body>
+<script src="./js/vue.min.js"></script>
+<script src="./js/vue-router.min.js"></script>
+<script src="./js/sea.js"></script>
+<script>
+    seajs.config({
+        "base": "./views/"
+    });
+
+    seajs.use("./main", function (main) {
+        main.init();
+    });
+</script>
+
+</html>

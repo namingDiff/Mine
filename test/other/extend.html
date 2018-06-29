@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<com-test id="profile"></com-test>
+</body>
+<script src="../vue.min.js"></script>
+<script>
+
+    var Profile = Vue.extend({
+        "template": `<h5>{{content}}</h5>`,
+        data() {
+            return {
+                "content": 'xxx'
+            };
+        }
+    });
+
+    new Profile().$mount('#profile');
+</script>
+</html>

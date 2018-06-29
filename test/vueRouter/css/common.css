@@ -1,0 +1,30 @@
+a {
+    text-decoration: none;
+}
+
+.content {
+    width: 200px;
+    height: 200px;
+    border: 1px solid #83d3f3;
+    display: flex;
+    justify-content: space-between;
+    font-size: 50px;
+}
+
+.item:nth-child(2) {
+    align-self: center;
+}
+
+.item:nth-child(3) {
+    align-self: flex-end;
+}
+
+.item-btn {
+    width: 80px;
+    height: 35px;
+    border: 1px solid #0e6570;
+    border-radius: 4px;
+    outline: none;
+    margin-top: 20px;
+}
+

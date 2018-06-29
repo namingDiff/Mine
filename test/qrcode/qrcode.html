@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>qrcode</title>
+</head>
+<body>
+  <div class="img">
+
+  </div>
+</body>
+<script src="./qrcode.js"></script>
+<script>
+  var img_element = document.getElementsByClassName('img')[0];
+
+  var qrcode = new QRCode(img_element, {
+    "width": 150,
+    "height": 150,
+    "text": 'di~didi 老司机卡~'
+  });
+
+  
+</script>
+</html>

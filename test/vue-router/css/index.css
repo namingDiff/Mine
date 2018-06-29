@@ -1,0 +1,45 @@
+.content {
+    color: #3c3c3c;
+}
+
+a {
+    text-decoration: none;
+}
+
+#app {
+    width: 800px;
+    height: 500px;
+    border: 1px solid #aaa;
+}
+
+.nav-list {
+    height: 50px;
+    width: 100%;
+    border-bottom: 1px solid #aaa;
+}
+
+.nav-list a {
+    display: inline-block;
+    text-align: center;
+    line-height: 50px;
+    padding-left: 30px;
+}
+
+#login {
+    border: 1px solid #aaa;
+    border-radius: 4px;
+    width: 300px;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#reg {
+    width: 300px;
+    height: 120px;
+    text-align: center;
+    line-height: 120px;
+    border: 1px solid #aaa;
+    border-radius: 4px;
+}

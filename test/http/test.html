@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+
+
+    var http = new XMLHttpRequest();
+
+    http.readystatechange = function () {
+
+        if (http.readyState == 4) {
+
+            if (http.state == 200) {
+                console.log('success');
+            } else {
+                console.log('fail');
+            }
+        }
+    };
+
+    http.open('GET', 'file.xml', true);
+
+    http.send(null);
+
+
+</script>
+</html>

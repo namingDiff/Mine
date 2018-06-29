@@ -1,0 +1,79 @@
+.magic-sprite, .magic-close {
+  background-image: url('/images/magic-sb98b81d527.png');
+  background-repeat: no-repeat; }
+
+.magic-close {
+  background-position: 0 0;
+  height: 29px;
+  width: 29px; }
+  .magic-close:hover, .magic-close.close-hover {
+    background-position: 0 -58px; }
+  .magic-close:active, .magic-close.close-active {
+    background-position: 0 -29px; }
+
+.test_1 {
+  background: url("../images/list/author-icon.png"); }
+
+.test_2 {
+  background: url("../images/list/author-over.png"); }
+
+.test_3 {
+  width: 200px;
+  height: 200px;
+  border: 1px solid #fdd;
+  font-family: 'MicroSoft YaHei';
+  font-size: 12px;
+  font-weight: bold; }
+  .test_3 .h {
+    font-size: 30px;
+    color: #ccc; }
+
+/*test*/
+.magic {
+  width: 29px;
+  height: 29px;
+  background: url("./../images/magic/close.png"); }
+  .magic:hover {
+    width: 29px;
+    height: 29px;
+    background: url("./../images/magic/close_hover.png"); }
+  .magic:active {
+    width: 29px;
+    height: 29px;
+    background: url("./../images/magic/close_active.png"); }
+  .magic-test {
+    color: red; }
+
+.magic::before {
+  content: "hello"; }
+
+.xx {
+  width: 200px/100px;
+  color: #9a9a9a; }
+
+.list-sprite, .list-author-icon, .list-author-over, .list-author-start, .list-bread-icon {
+  background-image: url('/images/list-s85baee41c6.png');
+  background-repeat: no-repeat; }
+
+.list-author-icon {
+  background-position: 0 0;
+  height: 26px;
+  width: 26px; }
+
+.list-author-over {
+  background-position: 0 -26px;
+  height: 160px;
+  width: 300px; }
+
+.list-author-start {
+  background-position: 0 -186px;
+  height: 160px;
+  width: 300px; }
+
+.list-bread-icon {
+  background-position: 0 -346px;
+  height: 12px;
+  width: 12px; }
+
+.fff::before {
+  content: "hello"; }
